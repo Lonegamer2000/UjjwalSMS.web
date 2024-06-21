@@ -1,0 +1,65 @@
+﻿@model UjjwalSMS.Models.Entity.Course
+@{
+    ViewData["Title"] = "Register";
+}
+
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+
+<h1>@ViewData["Title"]</h1>
+<h2>Create a new account.</h2>
+<hr />
+
+<form action="AddEdit" method="post">
+    <input asp-for="Id" hidden />
+    <div class="row">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="col-3">
+            <div class="form-floating">
+                <input asp-for="CourseName" class="form-control" autocomplete="username" aria-required="true" />
+                <label asp-for="CourseName"></label>
+                <span asp-validation-for="CourseName" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="form-floating">
+                <input asp-for="CourseDescription" class="form-control" autocomplete="username" aria-required="true" />
+                <label asp-for="CourseDescription"></label>
+                <span asp-validation-for="CourseDescription" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="form-group">
+                <label class="check-box">
+                    <input type="checkbox" asp-for="IsActive">
+                    <span class="checked1"></span>
+                    <p class="terms" for="">Is Active</p>
+                </label>
+                <span asp-validation-for="IsActive" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+
+    @* @if (User.IsInRole("ADMIN")) *@
+    {
+    <div class="row">
+        <div class="col-6">
+            <button asp-action="Index" type="submit" class="w-100 btn btn-lg btn-primary">Back</button>
+        </div>
+        <div class="col-6">
+            <button type="submit" class="w-100 btn btn-lg btn-primary float-end">Register</button>
+        </div>
+
+    </div>
+    }
+</form>
+
+
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+

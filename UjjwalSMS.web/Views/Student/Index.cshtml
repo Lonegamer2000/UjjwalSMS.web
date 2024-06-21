@@ -1,0 +1,82 @@
+﻿@model IEnumerable<UjjwalSMS.Models.Entity.Student>
+
+<h2>User Management</h2>
+
+
+
+<h3 class="align-content-center">Student List</h3>
+<div class="row">
+    <div class="col-12">
+        <a class="btn btn-primary float-end" asp-action="AddEdit">Add</a>
+    </div>
+</div>
+@* <div class="form-outline" data-mdb-input-init>
+    <input type="search" id="form1" class="form-control" placeholder="Type query" aria-label="Search" />
+</div> *@
+<div class="row">
+    <div class="col-12">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>
+                        FullName
+                    </th>
+                    <th>
+                        Last Name
+                    </th>
+                    <th>
+                        Email
+                    </th>
+                    <th>
+                        Class
+                    </th>
+                    <th>
+                        Address
+                    </th>
+                    <th>
+                        PhoneNumber
+                    </th>
+                    <th>
+                        Section
+                    </th>
+                    <th>
+                        Active
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var items in Model)
+                {
+                    <tr>
+                        <td>
+                            @items.FullName
+                        </td>
+                        <td>
+                            @items.Email
+                        </td>
+                        <td>
+                            @items.Class
+                        </td>
+                        <td>
+                            @items.Address
+                        </td>
+                        <td>
+                            @items.PhoneNumber
+                        </td>
+                        <td>
+                            @items.Section
+                        </td>
+                        <td>
+                            @items.IsActive
+                        </td>
+                        <td>
+                            <a class="btn btn-primary float-end" asp-action="AddEdit" asp-route-id="@items.Id">Edit</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="col-3"></div>
